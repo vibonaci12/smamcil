@@ -15,6 +15,7 @@ use App\Http\Controllers\PengumumanKelasController;
 use App\Http\Controllers\SiswaJadwalController;
 use App\Http\Controllers\SiswaNilaiController;
 use App\Http\Controllers\SiswaAbsensiController;
+use App\Http\Controllers\JenisPenilaianController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,6 +36,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('kelas', KelasController::class);
         Route::resource('jadwal', JadwalController::class);
         Route::resource('pengumuman', PengumumanController::class);
+        Route::resource('jenis-penilaian', JenisPenilaianController::class);
     });
 });
 
@@ -48,17 +50,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('absensi', AbsensiController::class);
         Route::get('get-siswa-by-jadwal', [AbsensiController::class, 'getSiswaByJadwal'])->name('absensi.get-siswa');
         
-        // Nilai
-        Route::resource('nilai', NilaiController::class);
+        // Nilai - Batch Input System
+        Route::get('nilai/select', [NilaiController::class, 'select'])->name('nilai.select');
+        Route::get('nilai/create-batch', [NilaiController::class, 'createBatch'])->name('nilai.createBatch');
+        Route::post('nilai/store-batch', [NilaiController::class, 'storeBatch'])->name('nilai.storeBatch');
+        Route::get('nilai/edit-batch', [NilaiController::class, 'editBatch'])->name('nilai.editBatch');
+        Route::put('nilai/update-batch', [NilaiController::class, 'updateBatch'])->name('nilai.updateBatch');
         Route::get('get-siswa-by-jadwal-nilai', [NilaiController::class, 'getSiswaByJadwal'])->name('nilai.get-siswa');
+        Route::get('nilai', [NilaiController::class, 'index'])->name('nilai.index');
         
         // Materi
         Route::resource('materi', MateriController::class);
         
         // Pengumuman kelas
         Route::resource('pengumuman-kelas', PengumumanKelasController::class);
-        
-
     });
 });
 

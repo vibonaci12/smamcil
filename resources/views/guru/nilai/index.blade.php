@@ -7,8 +7,8 @@
     <div class="card shadow-sm border-0">
         <div class="card-header bg-white fw-semibold text-dark d-flex justify-content-between align-items-center">
             <span><i class="bi bi-star me-2"></i> Daftar Nilai Siswa</span>
-            <a href="{{ route('nilai.create') }}" class="btn btn-primary btn-sm">
-                <i class="bi bi-plus-lg me-1"></i>Tambah Nilai
+            <a href="{{ route('nilai.select') }}" class="btn btn-primary btn-sm">
+                <i class="bi bi-plus-lg me-1"></i>Input Nilai Batch
             </a>
         </div>
         <div class="card-body p-0">
@@ -28,7 +28,7 @@
                                 <th>Siswa</th>
                                 <th>Kelas</th>
                                 <th>Mata Pelajaran</th>
-                                <th>Jenis</th>
+                                <th>Jenis Penilaian</th>
                                 <th>Nilai</th>
                                 <th>Aksi</th>
                             </tr>
@@ -51,26 +51,22 @@
                                         {{ $nilai->jadwal->mapel ?? '-' }}
                                     </td>
                                     <td>
-                                        <span class="badge bg-primary">{{ ucfirst($nilai->jenis) }}</span>
+                                        <span class="badge bg-primary">
+                                            {{ $nilai->jenisPenilaian->nama_formatted ?? '-' }}
+                                            <small class="d-block">{{ $nilai->jenisPenilaian->bobot_formatted ?? '-' }}</small>
+                                        </span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-{{ $nilai->nilai >= 75 ? 'success' : ($nilai->nilai >= 60 ? 'warning' : 'danger') }}">
-                                            {{ $nilai->nilai }}
+                                        <span class="badge bg-{{ $nilai->status }}">
+                                            {{ $nilai->nilai_formatted }}
                                         </span>
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="{{ route('nilai.edit', $nilai->id) }}" 
-                                               class="btn btn-sm btn-warning" title="Edit">
-                                                <i class="bi bi-pencil"></i>
+                                            <a href="{{ route('nilai.editBatch', ['jadwal_id' => $nilai->jadwal_id, 'jenis_penilaian_id' => $nilai->jenis_penilaian_id]) }}" 
+                                               class="btn btn-sm btn-warning" title="Edit Batch">
+                                                <i class="bi bi-pencil"></i> Edit Batch
                                             </a>
-                                            <form action="{{ route('nilai.destroy', $nilai->id) }}" method="POST" 
-                                                  onsubmit="return confirm('Yakin ingin menghapus nilai ini?')" class="d-inline">
-                                                @csrf @method('DELETE')
-                                                <button class="btn btn-sm btn-danger" title="Hapus">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-                                            </form>
                                         </div>
                                     </td>
                                 </tr>
@@ -88,9 +84,9 @@
                 <div class="text-center text-muted py-5">
                     <i class="bi bi-star display-1"></i>
                     <h5 class="mt-3">Belum ada data nilai</h5>
-                    <p>Mulai dengan menambahkan nilai siswa.</p>
-                    <a href="{{ route('nilai.create') }}" class="btn btn-primary">
-                        <i class="bi bi-plus-lg me-1"></i>Tambah Nilai Pertama
+                    <p>Mulai dengan menginput nilai siswa secara batch.</p>
+                    <a href="{{ route('nilai.select') }}" class="btn btn-primary">
+                        <i class="bi bi-plus-lg me-1"></i>Input Nilai Batch Pertama
                     </a>
                 </div>
             @endif

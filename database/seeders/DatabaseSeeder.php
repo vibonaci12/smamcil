@@ -85,5 +85,10 @@ class DatabaseSeeder extends Seeder
             'jam_mulai' => '10:00',
             'jam_selesai' => '11:30',
         ]);
+
+        // Seed JenisPenilaian
+        $this->call([
+            JenisPenilaianSeeder::class
+        ]);
     }
 }

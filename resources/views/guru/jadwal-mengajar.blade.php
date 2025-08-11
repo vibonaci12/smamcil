@@ -47,7 +47,7 @@
                                                class="btn btn-sm btn-success" title="Input Absensi">
                                                 <i class="bi bi-clipboard-check"></i>
                                             </a>
-                                            <a href="{{ route('nilai.create') }}?jadwal_id={{ $jadwal->id }}" 
+                                            <a href="{{ route('nilai.select') }}?jadwal_id={{ $jadwal->id }}" 
                                                class="btn btn-sm btn-warning" title="Input Nilai">
                                                 <i class="bi bi-star"></i>
                                             </a>
