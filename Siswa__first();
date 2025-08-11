@@ -1,0 +1,20 @@
+[90m= [39m[34;4mApp\Models\Siswa[39;24m {#6279
+    [34mid[39m: [35m1[39m,
+    [34mnama[39m: "[32mSiswa[39m",
+    [34mnis[39m: "[32m20230001[39m",
+    [34mkelas_id[39m: [35m1[39m,
+    [34malamat[39m: [36mnull[39m,
+    [34mjenis_kelamin[39m: "[32mL[39m",
+    [34mtanggal_lahir[39m: [36mnull[39m,
+    [34muser_id[39m: [35m3[39m,
+    [34mcreated_at[39m: "[32m2025-07-21 15:32:19[39m",
+    [34mupdated_at[39m: "[32m2025-07-21 15:32:19[39m",
+    [34mkelas[39m: [34;4mApp\Models\Kelas[39;24m {#6255
+      [34mid[39m: [35m1[39m,
+      [34mnama[39m: "[32mXII IPA 1[39m",
+      [34mwali_kelas_id[39m: [36mnull[39m,
+      [34mcreated_at[39m: "[32m2025-07-21 15:32:19[39m",
+      [34mupdated_at[39m: "[32m2025-07-21 15:32:19[39m",
+    },
+  }
+

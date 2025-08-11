@@ -1,0 +1,13 @@
+[90m= [39m[34;4mApp\Models\Guru[39;24m {#6254
+    [34mid[39m: [35m1[39m,
+    [34mnama[39m: "[32mGuru[39m",
+    [34mnip[39m: "[32m12345678[39m",
+    [34mmapel[39m: "[32mMatematika[39m",
+    [34malamat[39m: [36mnull[39m,
+    [34mjenis_kelamin[39m: "[32mL[39m",
+    [34mtanggal_lahir[39m: [36mnull[39m,
+    [34muser_id[39m: [35m2[39m,
+    [34mcreated_at[39m: "[32m2025-07-21 15:32:19[39m",
+    [34mupdated_at[39m: "[32m2025-07-21 15:32:19[39m",
+  }
+
