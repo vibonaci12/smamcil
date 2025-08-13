@@ -59,6 +59,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('get-siswa-by-jadwal-nilai', [NilaiController::class, 'getSiswaByJadwal'])->name('nilai.get-siswa');
         Route::get('nilai', [NilaiController::class, 'index'])->name('nilai.index');
         
+        // Nilai - New Features
+        Route::get('nilai/transkrip/{siswaId}', [NilaiController::class, 'transkripSiswa'])->name('nilai.transkrip');
+        Route::get('nilai/akhir-kelas/{kelasId}', [NilaiController::class, 'nilaiAkhirKelas'])->name('nilai.akhir-kelas');
+        
+        // API for dropdown data
+        Route::get('get-kelas-guru', [NilaiController::class, 'getKelasGuru'])->name('nilai.get-kelas');
+        Route::get('get-siswa-guru', [NilaiController::class, 'getSiswaGuru'])->name('nilai.get-siswa');
+        
         // Materi
         Route::resource('materi', MateriController::class);
         
@@ -75,6 +83,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         
         // Nilai
         Route::get('nilai-siswa', [SiswaNilaiController::class, 'index'])->name('siswa.nilai');
+        Route::get('nilai-siswa/transkrip', [SiswaNilaiController::class, 'transkrip'])->name('siswa.nilai.transkrip');
+        Route::get('nilai-siswa/akhir', [SiswaNilaiController::class, 'nilaiAkhir'])->name('siswa.nilai.akhir');
         
         // Absensi
         Route::get('absensi-siswa', [SiswaAbsensiController::class, 'index'])->name('siswa.absensi');
